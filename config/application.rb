@@ -38,6 +38,9 @@ module MyApp
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
 
+    # Define the project as API only
+    config.api_only = true
+
     # Don't generate system test files.
     config.generators.system_tests = nil
 
