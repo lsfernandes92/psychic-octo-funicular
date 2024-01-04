@@ -16,8 +16,6 @@ services:
     depends_on:
       db:
         condition: service_healthy
-      redis:
-        condition: service_started
   db:
     image: postgres:16
     ports:
@@ -31,10 +29,6 @@ services:
       interval: 2s
       timeout: 5s
       retries: 30
-  redis:
-    image: redis
-    volumes:
-      - redis_data:/data
 
 volumes:
   pg_data:
