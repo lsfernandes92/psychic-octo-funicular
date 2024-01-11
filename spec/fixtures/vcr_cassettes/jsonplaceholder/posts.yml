@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://jsonplaceholder.typicode.com/posts
+    uri: "<API_URL>/posts"
     body:
       encoding: US-ASCII
       string: ''
@@ -21,7 +21,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 10 Jan 2024 23:50:13 GMT
+      - Thu, 11 Jan 2024 00:15:57 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -61,11 +61,11 @@ http_interactions:
       Cf-Cache-Status:
       - HIT
       Age:
-      - '28206'
+      - '949'
       Server:
       - cloudflare
       Cf-Ray:
-      - 8438d2308ff567da-MIA
+      - 8438f7e0bf0d67ea-MIA
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
@@ -673,5 +673,5 @@ http_interactions:
             "body": "cupiditate quo est a modi nesciunt soluta\nipsa voluptas error itaque dicta in\nautem qui minus magnam et distinctio eum\naccusamus ratione error aut"
           }
         ]
-  recorded_at: Wed, 10 Jan 2024 23:50:13 GMT
+  recorded_at: Thu, 11 Jan 2024 00:15:57 GMT
 recorded_with: VCR 6.2.0
