@@ -2,9 +2,9 @@ require 'rails_helper'
 require './lib/api_clients/json_placeholder'
 
 RSpec.describe JsonPlaceHolder do
-  subject { JsonPlaceHolder.posts }
-
   describe 'Testing with webmock' do
+    subject { JsonPlaceHolder.posts }
+
     describe '#posts' do
       let(:response_body) do
         [
@@ -26,11 +26,26 @@ RSpec.describe JsonPlaceHolder do
           )
       end
   
-      it 'returns posts' do
+      xit 'returns posts' do
         expect(subject).to be_an Array
         expect(subject.first[:id]).not_to be_nil
         expect(subject.first[:title]).not_to be_nil
         expect(subject.first[:body]).not_to be_nil
+      end
+    end
+  end
+
+  describe 'Testing with VCR' do
+    subject { JSON.parse(JsonPlaceHolder.posts) }
+
+    describe '#posts' do
+      it 'returns posts' do
+        VCR.use_cassette('jsonplaceholder/posts') do
+          expect(subject).to be_an Array
+          expect(subject.first['id']).not_to be_nil
+          expect(subject.first['title']).not_to be_nil
+          expect(subject.first['body']).not_to be_nil
+        end
       end
     end
   end
