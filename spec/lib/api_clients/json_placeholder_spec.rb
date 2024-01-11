@@ -39,13 +39,11 @@ RSpec.describe JsonPlaceHolder do
     subject { JSON.parse(JsonPlaceHolder.posts) }
 
     describe '#posts' do
-      it 'returns posts' do
-        VCR.use_cassette('jsonplaceholder/posts') do
-          expect(subject).to be_an Array
-          expect(subject.first['id']).not_to be_nil
-          expect(subject.first['title']).not_to be_nil
-          expect(subject.first['body']).not_to be_nil
-        end
+      it 'returns posts', vcr: { cassette_name: 'jsonplaceholder/posts' } do
+        expect(subject).to be_an Array
+        expect(subject.first['id']).not_to be_nil
+        expect(subject.first['title']).not_to be_nil
+        expect(subject.first['body']).not_to be_nil
       end
     end
   end
