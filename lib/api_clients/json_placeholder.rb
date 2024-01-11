@@ -1,8 +1,8 @@
 require 'net/http'
 
 class JsonPlaceHolder
-  def self.posts
-    url = URI('https://jsonplaceholder.typicode.com/posts')
+  def self.posts(id = '')
+    url = URI("https://jsonplaceholder.typicode.com/posts/#{id}")
     Net::HTTP.get(url)
   end
 end

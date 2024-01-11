@@ -36,14 +36,25 @@ RSpec.describe JsonPlaceHolder do
   end
 
   describe 'Testing with VCR' do
-    subject { JSON.parse(JsonPlaceHolder.posts) }
-
     describe '#posts' do
+      subject { JSON.parse(JsonPlaceHolder.posts) }
+
       it 'returns posts', vcr: { cassette_name: 'jsonplaceholder/posts' } do
         expect(subject).to be_an Array
         expect(subject.first['id']).not_to be_nil
         expect(subject.first['title']).not_to be_nil
         expect(subject.first['body']).not_to be_nil
+      end
+
+      describe 'match request on body' do
+        subject { JSON.parse(JsonPlaceHolder.posts(1)) }
+
+        it 'returns posts', vcr: { cassette_name: 'jsonplaceholder/posts', match_requests_on: [:body] } do
+          expect(subject).to be_an Array
+          expect(subject.first['id']).not_to be_nil
+          expect(subject.first['title']).not_to be_nil
+          expect(subject.first['body']).not_to be_nil
+        end
       end
     end
   end
