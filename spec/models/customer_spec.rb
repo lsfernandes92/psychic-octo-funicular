@@ -88,4 +88,16 @@ RSpec.describe Customer, type: :model do
       end
     end 
   end
+
+  context 'Using time helpers' do
+    context '#travel_to' do
+      it 'creates a customer with specific date' do
+        travel_to Time.zone.local(2024, 01, 16) do
+          create(:customer)
+        end
+
+        expect(Customer.last.created_at).to be < Time.now
+      end
+    end
+  end
 end
