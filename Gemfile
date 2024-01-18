@@ -81,4 +81,5 @@ group :test do
   gem 'webmock'
   gem 'vcr'
   gem 'shoulda-matchers', '~> 6.0'
+  gem 'rspec-json_expectations'
 end
