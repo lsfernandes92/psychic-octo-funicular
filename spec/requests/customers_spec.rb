@@ -10,14 +10,14 @@ RSpec.describe 'Customers', type: :request do
       expect(response).to have_http_status :ok
     end
   end
-  
+
   describe 'GET #show' do
     let(:customer_id) { Customer.last.id }
 
     before { get customer_path(customer_id) }
 
     it 'returns customers as json' do
-      expect(response_body).to be_an Hash 
+      expect(response_body).to be_an Hash
       expect(response_body).to include_json(
         id: /\d/,
         name: (be_kind_of String),

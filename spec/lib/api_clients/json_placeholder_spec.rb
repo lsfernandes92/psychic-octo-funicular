@@ -16,16 +16,16 @@ RSpec.describe JsonPlaceHolder do
           }
         ]
       end
-  
+
       before do
         stub_request(:get, 'https://jsonplaceholder.typicode.com/posts')
           .to_return(
-            status: 200, 
-            body: response_body, 
+            status: 200,
+            body: response_body,
             headers: {}
           )
       end
-  
+
       xit 'returns posts' do
         expect(subject).to be_an Array
         expect(subject.first[:id]).not_to be_nil

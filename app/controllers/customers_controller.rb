@@ -12,7 +12,7 @@ class CustomersController < ApplicationController
 
   def create
     @customer = Customer.new(customer_params)
-    
+
     if @customer.save
       render json: @customer, status: :created
     else
@@ -23,7 +23,6 @@ class CustomersController < ApplicationController
   private
 
     def set_customer
-      byebug
       @customer = Customer.find(params[:id])
     end
 

@@ -52,13 +52,13 @@ group :development, :test do
   gem "brakeman"
   gem "bundler-audit"
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
+  gem 'byebug'
   gem "debug", platforms: %i[ mri windows ]
+  gem 'factory_bot_rails'
+  gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'main'
   gem "rspec-rails"
   gem "rubocop-rails"
   gem "rubocop-rspec"
-  gem 'factory_bot_rails'
-  gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'main'
-  gem 'byebug'
 end
 
 group :development do
@@ -77,9 +77,9 @@ end
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
-  gem "selenium-webdriver"
-  gem 'webmock'
-  gem 'vcr'
-  gem 'shoulda-matchers', '~> 6.0'
   gem 'rspec-json_expectations'
+  gem "selenium-webdriver"
+  gem 'shoulda-matchers', '~> 6.0'
+  gem 'vcr'
+  gem 'webmock'
 end

@@ -86,7 +86,7 @@ RSpec.describe Customer, type: :model do
         expect(customer_attrs.first).to be_a Hash
         expect{ Customer.create(customer_attrs) }.to change { Customer.count }.by 2
       end
-    end 
+    end
   end
 
   context 'Using time helpers' do
